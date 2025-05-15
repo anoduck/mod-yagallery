@@ -1,5 +1,5 @@
-module github.com/gethinode/mod-template/exampleSite
+module github.com/anoduck/mod-yagallery/exampleSite
 
 go 1.19
 
-require github.com/gethinode/mod-template v0.0.0-20250514031925-c09daaa3659d // indirect
+require github.com/anoduck/mod-yagallery v0.0.1
