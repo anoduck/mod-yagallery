@@ -1,6 +1,6 @@
 {
-  "name": "@gethinode/mod-template",
-  "version": "0.0.0",
+  "name": "@anoduck/mod-yagallery",
+  "version": "0.0.1",
   "description": "A template to define a Hugo module compatible with Hinode",
   "keywords": [
     "hugo",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gethinode/mod-template.git"
+    "url": "git+https://github.com/anoduck/mod-yagallery.git"
   },
   "author": "Mark Dumay",
   "license": "MIT",
@@ -41,6 +41,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
+    "bootstrap": "^5.3.6",
     "commitizen": "^4.3.1",
     "cpy-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",

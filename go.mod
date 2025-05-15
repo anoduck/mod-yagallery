@@ -1,3 +1,3 @@
-module github.com/gethinode/mod-template
+module github.com/anoduck/mod-yagallery
 
 go 1.19
