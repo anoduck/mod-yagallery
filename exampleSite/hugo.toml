@@ -13,9 +13,9 @@ block = true
 workspace = "mod-yagallery.work"
 [[module.imports]]
 path = "github.com/anoduck/mod-yagallery"
-[[module.imports.mounts]]
-source = "dist"
-target = "static"
-[[module.imports.mounts]]
-source = "layouts"
-target = "layouts"
+# [[module.imports.mounts]]
+# source = "dist"
+# target = "static"
+# [[module.imports.mounts]]
+# source = "layouts"
+# target = "layouts"
