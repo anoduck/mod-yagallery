@@ -1,4 +1,4 @@
-{{- $source := "scss/timelinejs.scss" -}}
+{{- $source := "scss/yagallery.scss" -}}
 {{- $target := "css/main.css" -}}
 
 <!-- TODO: remove debug statement -->
@@ -8,7 +8,7 @@
     {{- $files = $files | append $file -}}
 {{- end -}}
 
-{{- $options := (dict "transpiler" "libsass" "targetPath" $target) -}}
+{{- $options := (dict "transpiler" "dartsass" "targetPath" $target) -}}
 {{- $options = merge $options (dict "outputStyle" "expanded") -}}
 
 {{- $css := resources.GetMatch $source | resources.ExecuteAsTemplate "style.app.scss" . | toCSS $options -}}
