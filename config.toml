@@ -1,3 +1,6 @@
+[markup.goldmark.renderer]
+unsafe = true
+
 [module]
   [module.hugoVersion]
     extended = true
@@ -12,3 +15,12 @@
   [[module.mounts]]
     source = 'static'
     target = 'static'
+  [[module.mounts]]
+    source = "dist/scss"
+    target = "assets/scss/modules/yagallery"
+  [[module.mounts]]
+    source = "dist/js"
+    target = "assets/js/modules/yagallery"
+
+[params.modules.yagallery]
+integration = "optional"

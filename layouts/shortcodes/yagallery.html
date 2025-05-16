@@ -1,0 +1,80 @@
+<!--
+    Licensed under MIT License 2025, Anoduck, The Anonymous Duck
+    https://anoduck.mit-license.org
+
+    Hinode is a creation of The Hinode Team / I.E. Mark Dumay -> Of, which all credit and property rights are due.
+
+    TimelineJS is created by The Knight Labs at The NorthWestern University School of Engineering, for which, all credit and property rights are due.
+-->
+<!--
+    Copyright � 2024 The Hinode Team / Mark Dumay. All rights reserved.
+    Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
+    Visit gethinode.com/license for more details.
+-->
+
+<!-- Check for valid arguments -->
+{{- $error := false -}}
+
+<!-- Initialize arguments -->
+{{- $file := . -}}
+{{- $index := .index -}}
+{{- $imgGalId := "" -}}
+{{- $imgGalTitle := "" -}}
+{{- $imgGalSet := "" -}}
+{{- $src := "" -}}
+{{- $alt := "" -}}
+{{- $thumb := "" -}}
+{{- $debug := "" | default false -}}
+
+<!-- Set debug -->
+{{- if .Site.Params.modules.yagallery.debug }}
+    {{- $debug = true -}}
+{{ end }}
+
+<!-- Check if named and Get -->
+{{- if .IsNamedParams }}
+    {{- $imgGalId = .Get "imgGalId" | default "gallery" -}}
+{{ else }}
+    {{- $imgGalId = .Get 0 | default "gallery" -}}
+{{ end }}
+
+<!-- defined variables -->
+{{- $imgGalFile := .Site.Data.gallery $imgGalId -}}
+{{- $imgGalTitle := $imgGalFile.title | default "Hinode Gallery" -}}
+{{- $imgGalSet := $imgGalFile.content -}}
+
+{{/* <!-- test for types -->
+{{- if $jsonType }}
+    {{- $dataAttr = $tlData | urlize -}}
+{{ else if $htmlType }}
+    {{- $dataAttr = $tlData | safeURL -}}
+{{ else }}
+    {{ errorf "The %q shortcode requires a valid 'tlData' argument, which is either a valid JSON file or a Google Sheets URL. Please review your syntax on %s" $file.Name $file.Position }}
+    {{ errorf "tldata retrieved as %s" $tlData }}
+    {{ errorf "jsonType rendered as %s" $jsonType }}
+    {{ errorf "htmlType rendered as %s" $htmlType }}
+    {{ errorf "tldata rendered as %s" $dataAttr }}
+{{ end }} */}}
+
+<!-- Inject div element -->
+{{ partial "assets/svg.html" }}
+{{ with $imgGalTitle }}
+<h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
+{{ end }}
+<p class="text-center mb-4">Click an image to reveal the lightbox</p>
+{{ partial "gallery.html" }}
+
+<!-- Provide debug information -->
+{{/* {{- if $debug }}
+    <p> The following values were used in the above timelinejs element</p>
+    <ul>
+        <li>Original Timeline Data = {{ $tlData }} </li>
+        <li>Block ID = {{ $imgGalId | safeHTML }}</li>
+        <li>Rendered Timeline Data = {{ $dataAttr  }} </li>
+    </ul>
+    {{- if .Site.Params.enableDarkMode }}
+        <p>Dark Mode has been enabled for this site.</p>
+        <p class="d-none-dark">The current mode is: <mark>light mode</mark><p/>
+        <p class="d-none-light">The current mode is: <mark>dark mode</mark><p/>
+    {{ end }}
+{{ end }} */}}

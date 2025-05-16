@@ -38,12 +38,52 @@ Hinode is a clean blog theme for [Hugo][hugo], an open-source static site genera
 
 This module uses [semantic-release][semantic-release] to automate the release of new versions. The package uses `husky` and `commitlint` to ensure commit messages adhere to the [Conventional Commits][conventionalcommits] specification. You can run `npx git-cz` from the terminal to help prepare the commit message.
 
-<!-- ## Configuration
+## Configuration
 
+Configuration of the module primarily occurs in the yaml file that will be used to store data about your photo gallery.
+This method ensures one can have as many galleries as one desires while avoiding the use of global configuration options.
+
+<!--
 This module supports the following parameters (see the section `params.modules` in `config.toml`):
 
 | Setting                   | Default | Description |
-|---------------------------|---------|-------------| -->
+|---------------------------|---------|-------------|
+-->
+
+### Yaml Data File
+
+Each gallery is defined using a yaml file located in the folder `/data/gallery`, and is identified by the name of that
+file less the ".yaml" file extension. For example, if the name of the file is `bananas.yaml`, then the id of your
+gallery will be "bananas". Vice versa, if the id of your gallery is "coconut", then the name of the corresponding yaml
+file will be `coconut.yaml`.
+
+A typical gallery yaml file will look something like this:
+
+```yaml
+title: Gallery of Coconuts
+content:
+    - image:
+        src: /path/to/coconut1.jpg
+        alt: "Something about coconuts"
+```
+
+You should now get the picture.
+
+## Usage
+
+When it comes time to add your gallery to a page, simply add the shortcode to the markdownfile, including the name of
+your datafile less the extension as your gallery id.
+
+```html
+{{< yagallery "my-gallery" >}}
+
+```
+
+## TODO
+
+- [ ] Expand data structure yaml
+- [ ] setup config and hugo files
+- [ ] add configuration and usage to this file.
 
 <!-- MARKDOWN LINKS -->
 [hugo]: https://gohugo.io

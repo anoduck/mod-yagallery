@@ -1,0 +1,51 @@
+<!--
+    Licensed under MIT License 2025, Anoduck, The Anonymous Duck
+    https://anoduck.mit-license.org
+
+    Hinode is a creation of The Hinode Team / I.E. Mark Dumay -> Of, which all credit and property rights are due.
+
+    TimelineJS is created by The Knight Labs at The NorthWestern University School of Engineering, for which, all credit and property rights are due.
+-->
+<!--
+    Copyright � 2024 The Hinode Team / Mark Dumay. All rights reserved.
+    Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
+    Visit gethinode.com/license for more details.
+-->
+
+{{- $file := . -}}
+{{- $index := .index -}}
+{{- $imgGalId := "" -}}
+{{- $imgGalFile := "" | default .Site.Data.gallery $imgGalId -}}
+{{- $imgGalSet := "" | default $imgGalFile.content -}}
+{{- $src := "" -}}
+{{- $alt := "" -}}
+{{- $thumb := "" -}}
+
+<section class="photo-gallery" id="{{ $imgGalId }}">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gallery-grid">
+      {{- range index $imgGalSet .image -}}
+        {{ partial "assets/image.html" }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<div class="modal fade lightbox-modal" id="lightbox-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+    <div class="modal-content">
+      <button type="button" class="btn-fullscreen-enlarge" aria-label="Enlarge fullscreen">
+        <svg class="bi"><use href="#enlarge"></use></svg>
+      </button>
+      <button type="button" class="btn-fullscreen-exit d-none" aria-label="Exit fullscreen">
+        <svg class="bi"><use href="#exit"></use></svg>
+      </button>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <div class="lightbox-content">
+          <!-- JS content here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
