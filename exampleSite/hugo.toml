@@ -2,6 +2,12 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Test site for mod-yagallery'
 
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.parser.attribute]
+block = true
+
 [module]
 # Build and serve using local mod-yagallery clone declared in the named Hugo workspace:
 workspace = "mod-yagallery.work"

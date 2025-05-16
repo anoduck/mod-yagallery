@@ -1,0 +1,24 @@
+<!--
+    Licensed under MIT License 2025, Anoduck, The Anonymous Duck
+    https://anoduck.mit-license.org
+
+    Hinode is a creation of The Hinode Team / I.E. Mark Dumay -> Of, which all credit and property rights are due.
+
+    TimelineJS is created by The Knight Labs at The NorthWestern University School of Engineering, for which, all credit and property rights are due.
+-->
+<!--
+    Copyright � 2024 The Hinode Team / Mark Dumay. All rights reserved.
+    Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
+    Visit gethinode.com/license for more details.
+-->
+
+{{- $image := . -}}
+{{- $src := "" | default $image.src -}}
+{{- $alt := "" | default $image.alt -}}
+{{- $thumb := $src.Resize "480x320 Lanczos" -}}
+
+<div class="col">
+    <a class="gallery-item" href="{{ $src | safeHTML }}">
+        <img src="{{ $thumb | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
+    </a>
+</div>
