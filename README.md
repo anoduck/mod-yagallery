@@ -42,6 +42,12 @@ This module uses [semantic-release][semantic-release] to automate the release of
 
 You can demo all of my hugo modules on [Hinode TestSite](https://testhinode.netlify.com)
 
+## Installation
+
+Since this module was intended to jive well with Hinode it uses bootstrap to render the styling. Unfortunately, this
+created another issue. The Hinode module for bootstrap is required to test it. During normal usage, this should not be
+an issue, becuase the dependency is already satisfied.
+
 ## Configuration
 
 Configuration of the module primarily occurs in the yaml file that will be used to store data about your photo gallery.
@@ -92,7 +98,7 @@ your datafile less the extension as your gallery id.
 - [X] Expand data structure yaml - [Note 5-16]: Since there is only one arguement this was rather easy.
 - [X] setup config and hugo files
 - [X] add configuration and usage to this file.
-- [ ] Resolve "head/stylesheet.html not found" issue.
+- [X] Resolve "head/stylesheet.html not found" issue.
 
 <!-- MARKDOWN LINKS -->
 [hugo]: https://gohugo.io

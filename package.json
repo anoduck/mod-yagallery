@@ -1,6 +1,6 @@
 {
   "name": "@anoduck/mod-yagallery",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A template to define a Hugo module compatible with Hinode",
   "keywords": [
     "hugo",
@@ -21,9 +21,7 @@
     "mod:update": "rimraf _vendor && hugo mod get -u ./... && hugo mod get -u && npm run -s mod:vendor && npm run -s mod:tidy",
     "mod:tidy": "hugo mod tidy",
     "mod:vendor": "rimraf _vendor && hugo mod vendor",
-    "postinstall": "npm run -s copy:js && npm run -s copy:css",
-    "copy:js": "cpy node_modules/bootstrap/dist/js/bootstrap.min.js dist/js --flat",
-    "copy:css": "cpy node_modules/bootstrap/dist/css/bootstrap.min.css dist/scss --rename=bootstrap.min.scss --flat",
+    "postinstall": "echo 'Do nothing'",
     "test": "npm run -s build",
     "upgrade": "npx npm-check-updates -u && npm run -s mod:update",
     "prepare": "node .husky/install.mjs"
@@ -43,7 +41,6 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
-    "bootstrap": "^5.3.6",
     "commitizen": "^4.3.1",
     "cpy-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
