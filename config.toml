@@ -24,3 +24,46 @@ unsafe = true
 
 [params.modules.yagallery]
 integration = "optional"
+debug = false
+
+[params.modules.yagallery.csp]
+  [modules.yagallery.csp]
+    style-src = ["www.youtube.com"]
+    font-src = ["fonts.gstatic.com"]
+    frame-src = [
+        "player.cloudinary.com",
+        "www.youtube-nocookie.com",
+        "www.youtube.com",
+        "www.vimeo.com",
+        "*.x.com",
+        "*.twitter.com",
+        "*.wikipedia.com",
+        "play.spotify.com",
+        "maps.google.com",
+        "www.google.com",
+        "docs.google.com"
+    ]
+    img-src = [
+        "data:",
+        "*.imgix.net",
+        "*.imagekit.io",
+        "*.cloudinary.com",
+        "i.ytimg.com",
+        "*.x.com",
+        "*.twitter.com",
+        "www.youtube.com",
+        "instagram.com",
+        "imgur.com",
+        "www.flickr.com",
+        "docs.google.com",
+        "www.google.com"
+    ]
+    media-src = [
+        "vimeo.com",
+        "www.dailymotion.com",
+        "*.x.com",
+        "play.spotify.com",
+        "soundcloud.com",
+        "www.google.com",
+        "docs.google.com"
+    ]

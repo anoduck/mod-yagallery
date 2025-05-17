@@ -17,7 +17,6 @@
 
 <!-- Initialize arguments -->
 {{- $file := . -}}
-{{- $index := .index -}}
 {{- $imgGalId := "" -}}
 {{- $imgGalTitle := "" -}}
 {{- $imgGalSet := "" -}}
@@ -39,42 +38,25 @@
 {{ end }}
 
 <!-- defined variables -->
-{{- $imgGalFile := .Site.Data.gallery $imgGalId -}}
-{{- $imgGalTitle := $imgGalFile.title | default "Hinode Gallery" -}}
-{{- $imgGalSet := $imgGalFile.content -}}
-
-{{/* <!-- test for types -->
-{{- if $jsonType }}
-    {{- $dataAttr = $tlData | urlize -}}
-{{ else if $htmlType }}
-    {{- $dataAttr = $tlData | safeURL -}}
-{{ else }}
-    {{ errorf "The %q shortcode requires a valid 'tlData' argument, which is either a valid JSON file or a Google Sheets URL. Please review your syntax on %s" $file.Name $file.Position }}
-    {{ errorf "tldata retrieved as %s" $tlData }}
-    {{ errorf "jsonType rendered as %s" $jsonType }}
-    {{ errorf "htmlType rendered as %s" $htmlType }}
-    {{ errorf "tldata rendered as %s" $dataAttr }}
-{{ end }} */}}
+{{- $imgGalFile := ( index .Site.Data $imgGalId ) -}}
+{{- $imgGalTitle := ( index $imgGalFile "title" ) -}}
+{{- $imgGalSet := ( index $imgGalFile "content" ) -}}
 
 <!-- Inject div element -->
 {{ partial "assets/svg.html" }}
 {{ with $imgGalTitle }}
-<h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
+    <h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
 {{ end }}
 <p class="text-center mb-4">Click an image to reveal the lightbox</p>
-{{ partial "gallery.html" }}
+{{ partial "gallery.html" (dict "imgGalId" $imgGalId "imgGalFile" $imgGalFile "debug" $debug ) }}
+{{ partial "assets/controls.html" }}
 
 <!-- Provide debug information -->
-{{/* {{- if $debug }}
-    <p> The following values were used in the above timelinejs element</p>
+{{- if $debug }}
+    <p> The following values were used during rendering of the yagallery element</p>
     <ul>
-        <li>Original Timeline Data = {{ $tlData }} </li>
-        <li>Block ID = {{ $imgGalId | safeHTML }}</li>
-        <li>Rendered Timeline Data = {{ $dataAttr  }} </li>
+        <li>Debugging enabled = {{ $debug }} </li>
+        <li>Gallery ID = {{ $imgGalId | safeHTML }}</li>
+        <li>Gallery Title = {{ $imgGalTitle | safeHTML  }} </li>
     </ul>
-    {{- if .Site.Params.enableDarkMode }}
-        <p>Dark Mode has been enabled for this site.</p>
-        <p class="d-none-dark">The current mode is: <mark>light mode</mark><p/>
-        <p class="d-none-light">The current mode is: <mark>dark mode</mark><p/>
-    {{ end }}
-{{ end }} */}}
+{{ end }}

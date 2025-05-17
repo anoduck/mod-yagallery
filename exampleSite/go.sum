@@ -344,3 +344,5 @@ github.com/anoduck/mod-yagallery v0.0.0-20250514031925-c09daaa3659d h1:Kfho7FX5I
 github.com/anoduck/mod-yagallery v0.0.0-20250514031925-c09daaa3659d/go.mod h1:6ofWqxiQMhTnI8U6mT3FrEUN1UZ0vcUcZyXVIny2CZs=
 github.com/anoduck/mod-yagallery v0.0.2 h1:TZIOkuBL5cr734i80lTUhmFJUYAbtq23WBZgXfmfOFQ=
 github.com/anoduck/mod-yagallery v0.0.2/go.mod h1:OhX1G7YGEehSGkzs7WY6KrXmMVFEihJ6cAwEckno4z4=
+github.com/anoduck/mod-yagallery v0.0.3 h1:z1DQwZ/qCBqhxD+xL4ccs+c62YoTXVLXWnM2SJ+1taU=
+github.com/anoduck/mod-yagallery v0.0.3/go.mod h1:OhX1G7YGEehSGkzs7WY6KrXmMVFEihJ6cAwEckno4z4=

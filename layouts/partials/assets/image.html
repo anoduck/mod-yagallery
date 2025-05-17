@@ -12,13 +12,14 @@
     Visit gethinode.com/license for more details.
 -->
 
-{{- $image := . -}}
-{{- $src := "" | default $image.src -}}
-{{- $alt := "" | default $image.alt -}}
-{{- $thumb := $src.Resize "480x320 Lanczos" -}}
+{{- $image := .image -}}
+{{- $debug := .debug -}}
+{{- $src := $image.src -}}
+{{- $alt := $image.alt -}}
+{{/*  {{- $thumb := $src.Resize "480x320 Lanczos" -}}  */}}
 
 <div class="col">
     <a class="gallery-item" href="{{ $src | safeHTML }}">
-        <img src="{{ $thumb | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
+        <img style="max-width: 480px; max-height: 320px;" src="{{ $src | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
     </a>
 </div>
