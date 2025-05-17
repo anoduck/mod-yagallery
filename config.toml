@@ -6,6 +6,8 @@ unsafe = true
     extended = true
     min = "0.110.0"
     max = ""
+  [[module.imports]]
+    path = "github.com/gethinode/mod-bootstrap"
   [[module.mounts]]
     source = 'layouts'
     target = 'layouts'
@@ -15,12 +17,6 @@ unsafe = true
   [[module.mounts]]
     source = 'static'
     target = 'static'
-  [[module.mounts]]
-    source = "dist/scss"
-    target = "assets/scss/modules/yagallery"
-  [[module.mounts]]
-    source = "dist/js"
-    target = "assets/js/modules/yagallery"
 
 [params.modules.yagallery]
 integration = "optional"
