@@ -1,25 +1,25 @@
 comment: >-
   Creates an embedded gallery containing photos.
 arguments:
-  title:
+  imgGalId:
     type: string
     position: 0
     optional: false
     comment: >-
-      Name given to the title of the gallery.
-  portal:
-    type: int
-    optional: true
-    comment: >-
-      The portal ID of the HubSpot account where you created the form. This is
-      used to retrieve the form definition.
-  region:
-    type: select
-    optional: true
-    comment: >-
-      The region of the portal where the form was created. This is used to
-      retrieve the form definition.
-    options:
-      values:
-        - eu1
-        - na1
+      Gives the name of the gallery id to use for generating the gallery.
+  # portal:
+  #   type: int
+  #   optional: true
+  #   comment: >-
+  #     The portal ID of the HubSpot account where you created the form. This is
+  #     used to retrieve the form definition.
+  # region:
+  #   type: select
+  #   optional: true
+  #   comment: >-
+  #     The region of the portal where the form was created. This is used to
+  #     retrieve the form definition.
+  #   options:
+  #     values:
+  #       - eu1
+  #       - na1

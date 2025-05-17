@@ -1,6 +1,6 @@
 {
   "name": "@anoduck/mod-yagallery",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A template to define a Hugo module compatible with Hinode",
   "keywords": [
     "hugo",

@@ -38,17 +38,20 @@ Hinode is a clean blog theme for [Hugo][hugo], an open-source static site genera
 
 This module uses [semantic-release][semantic-release] to automate the release of new versions. The package uses `husky` and `commitlint` to ensure commit messages adhere to the [Conventional Commits][conventionalcommits] specification. You can run `npx git-cz` from the terminal to help prepare the commit message.
 
+## Demo
+
+You can demo all of my hugo modules on [Hinode TestSite](https://testhinode.netlify.com)
+
 ## Configuration
 
 Configuration of the module primarily occurs in the yaml file that will be used to store data about your photo gallery.
 This method ensures one can have as many galleries as one desires while avoiding the use of global configuration options.
 
-<!--
 This module supports the following parameters (see the section `params.modules` in `config.toml`):
 
-| Setting                   | Default | Description |
-|---------------------------|---------|-------------|
--->
+| Setting | Default | Description                                      |
+|---------|---------|--------------------------------------------------|
+| debug   | false   | enable generation of exhaustive debugging output |
 
 ### Yaml Data File
 
@@ -62,9 +65,12 @@ A typical gallery yaml file will look something like this:
 ```yaml
 title: Gallery of Coconuts
 content:
-    - image:
-        src: /path/to/coconut1.jpg
-        alt: "Something about coconuts"
+    - src: /path/to/coconut1.jpg
+    alt: "Something about coconuts"
+    - src: /path/to/coconut2.jpg
+    alt: "Something else about coconuts"
+    - src: /path/to/coconut3.jpg
+    alt: "Even more stuff about coconuts"
 ```
 
 You should now get the picture.
@@ -76,14 +82,17 @@ your datafile less the extension as your gallery id.
 
 ```html
 {{< yagallery "my-gallery" >}}
+<-- or with named parameters -->
+{{< yagallery imgGalId="my-gallery" >}}
 
 ```
 
 ## TODO
 
-- [ ] Expand data structure yaml
-- [ ] setup config and hugo files
-- [ ] add configuration and usage to this file.
+- [X] Expand data structure yaml - [Note 5-16]: Since there is only one arguement this was rather easy.
+- [X] setup config and hugo files
+- [X] add configuration and usage to this file.
+- [ ] Resolve "head/stylesheet.html not found" issue.
 
 <!-- MARKDOWN LINKS -->
 [hugo]: https://gohugo.io
