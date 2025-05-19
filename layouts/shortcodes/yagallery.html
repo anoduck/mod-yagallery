@@ -17,7 +17,7 @@
 
 <!-- Initialize arguments -->
 {{- $file := . -}}
-{{- $imgGalId := "" -}}
+{{- $galId := "" -}}
 {{- $imgGalTitle := "" -}}
 {{- $imgGalSet := "" -}}
 {{- $src := "" -}}
@@ -26,37 +26,37 @@
 {{- $debug := "" | default false -}}
 
 <!-- Set debug -->
-{{- if .Site.Params.modules.yagallery.debug }}
-    {{- $debug = true -}}
+{{- if .Site.Params.modules.yagallery.debug }} 
+  {{- $debug = true -}} 
 {{ end }}
 
 <!-- Check if named and Get -->
 {{- if .IsNamedParams }}
-    {{- $imgGalId = .Get "imgGalId" | default "gallery" -}}
+  {{- $galId = .Get "galId" | default "gallery" -}}
 {{ else }}
-    {{- $imgGalId = .Get 0 | default "gallery" -}}
+  {{- $galId = .Get 0 | default "gallery" -}}
 {{ end }}
 
 <!-- defined variables -->
-{{- $imgGalFile := ( index .Site.Data $imgGalId ) -}}
+{{- $imgGalFile := ( index .Site.Data $galId ) -}}
 {{- $imgGalTitle := ( index $imgGalFile "title" ) -}}
 {{- $imgGalSet := ( index $imgGalFile "content" ) -}}
 
 <!-- Inject div element -->
 {{ partial "assets/svg.html" }}
 {{ with $imgGalTitle }}
-    <h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
+  <h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
 {{ end }}
 <p class="text-center mb-4">Click an image to reveal the lightbox</p>
-{{ partial "gallery.html" (dict "imgGalId" $imgGalId "imgGalFile" $imgGalFile "debug" $debug ) }}
+{{ partial "gallery.html" (dict "galId" $galId "imgGalFile" $imgGalFile "debug" $debug ) }}
 {{ partial "assets/controls.html" }}
 
 <!-- Provide debug information -->
 {{- if $debug }}
-    <p> The following values were used during rendering of the yagallery element</p>
-    <ul>
-        <li>Debugging enabled = {{ $debug }} </li>
-        <li>Gallery ID = {{ $imgGalId | safeHTML }}</li>
-        <li>Gallery Title = {{ $imgGalTitle | safeHTML  }} </li>
-    </ul>
+<p>The following values were used during rendering of the yagallery element</p>
+<ul>
+  <li>Debugging enabled = {{ $debug }}</li>
+  <li>Gallery ID = {{ $galId | safeHTML }}</li>
+  <li>Gallery Title = {{ $imgGalTitle | safeHTML }}</li>
+</ul>
 {{ end }}

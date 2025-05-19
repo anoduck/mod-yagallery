@@ -13,28 +13,29 @@
 -->
 
 {{- $file := . -}}
-{{- $imgGalId := .imgGalId -}}
+{{- $galId := .galId -}}
 {{- $imgGalFile := .imgGalFile -}}
 {{- $debug := .debug -}}
+
 {{- $imgGalSet := ( index $imgGalFile "content" ) -}}
 
-<section class="photo-gallery" id="{{ $imgGalId }}">
-  <div class="container">
+<section class="photo-gallery" id="{{ $galId }}">
+  <div class="container mb-6">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gallery-grid">
-      {{- range $index, $image := $imgGalSet -}}
-        {{ partial "assets/image.html" ( dict "image" $image "debug" $debug ) }}
+      {{- range $index, $image := $imgGalSet -}} 
+        {{ partial "assets/image.html" ( dict "image" $image "debug" $debug )}} 
       {{ end }}
     </div>
   </div>
 </section>
 
 {{- if $debug }}
-    <p> The following values were used during rendering of the gallery template</p>
-    <ul>
-        <li>Debugging enabled = {{ $debug }} </li>
-        <li>Debugging imgset: {{ print $imgGalSet }}</li>
-        {{- range $index, $image := $imgGalSet -}}
-          <li>{{ $image }}</li>
-        {{- end -}}
-    </ul>
+<p>The following values were used during rendering of the gallery template</p>
+<ul>
+  <li>Debugging enabled = {{ $debug }}</li>
+  <li>Debugging imgset: {{ print $imgGalSet }}</li>
+  {{- range $index, $image := $imgGalSet -}}
+  <li>{{ $image }}</li>
+  {{- end -}}
+</ul>
 {{ end }}
