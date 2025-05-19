@@ -20,7 +20,7 @@ unsafe = true
 
 [params.modules.yagallery]
 integration = "optional"
-debug = false
+debug = true
 imgDir = "/img"
 
 [params.modules.yagallery.csp]
