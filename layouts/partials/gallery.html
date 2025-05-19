@@ -16,12 +16,19 @@
 {{- $galId := .galId -}}
 {{- $imgGalFile := .imgGalFile -}}
 {{- $debug := .debug -}}
+{{- $index := "" -}}
 
 {{- $imgGalSet := ( index $imgGalFile "content" ) -}}
 
 <section class="photo-gallery" id="{{ $galId }}">
   <div class="container mb-6">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gallery-grid">
+      {{/*  {{ .Store.Set "index" 0 }}
+      {{ range $imgGalSet }}
+        {{ $.Store.Set "index" (add ($.Store.Get "index") 1) }}
+        {{ .Store.Set "index" ($.Store.Get "index") }}
+        {{ partial "assets/image.html" ( dict "image" $index "debug" $debug ) }}
+      {{ end }}  */}}
       {{- range $index, $image := $imgGalSet -}} 
         {{ partial "assets/image.html" ( dict "image" $image "debug" $debug )}} 
       {{ end }}
@@ -39,3 +46,21 @@
   {{- end -}}
 </ul>
 {{ end }}
+
+{{/*  Example of using scratchpad to store variable for iteration  */}}
+{{/*  Replaced index with image in example below.  */}}
+{{/*
+{{ .Store.Set "image" 0 }}
+{{ range $imgGalSet }}
+  {{ $.Store.Set "image" (add ($.Store.Get "image") 1) }}
+  {{ .Store.Set "image" ($.Store.Get "image") }}
+  {{ partial ("assets/image.html" ( dict "image" $image "debug" $debug )) . }}
+{{ end }}
+*/}}
+
+{{/*  Previous implementation  */}}
+{{/*  
+{{- range $index, $image := $imgGalSet -}} 
+  {{ partial "assets/image.html" ( dict "image" $image "debug" $debug )}} 
+{{ end }}
+*/}}

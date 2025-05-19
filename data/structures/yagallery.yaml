@@ -1,0 +1,9 @@
+comment: >-
+  Generates a lightgallery powered photo gallery.
+arguments:
+  galId:
+    type: string
+    optional: false
+    comment: >-
+      Provides the label used for html id attribute and name of the data file containing parameters needed for
+      generation of the image gallery.

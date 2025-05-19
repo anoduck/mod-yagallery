@@ -1,7 +1,7 @@
 {
   "name": "@anoduck/mod-yagallery",
-  "version": "0.1.3",
-  "description": "A template to define a Hugo module compatible with Hinode",
+  "version": "0.1.4",
+  "description": "A module to generate lightgallery powered image galleries.",
   "keywords": [
     "hugo",
     "module"
