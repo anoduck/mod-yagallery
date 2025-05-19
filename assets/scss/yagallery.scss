@@ -3,23 +3,24 @@
 :root {
   --lightbox: rgb(0 0 0 / 0.75);
   --carousel-text: #fff;
+  --my-shadow: 0.5rem 0.5rem 1rem black, 0.2rem 0.2rem 0.5rem black, 0.1rem 0.1rem 0.2rem black, 0 0 0.1rem black;
 }
 
 body {
   margin: 1.5rem 0 3.5rem;
 }
 
-@keyframes zoomin {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// @keyframes zoomin {
+//   0% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.05);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
 
 .gallery-item {
   display: block;
@@ -31,7 +32,7 @@ body {
 }
 
 .gallery-item:hover img {
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.35);
+  box-shadow: var(--my-shadow);
 }
 
 .lightbox-modal .modal-content {
@@ -69,9 +70,9 @@ body {
   width: 75%;
 }
 
-.lightbox-modal .carousel-inner img {
-  animation: zoomin 10s linear infinite;
-}
+// .lightbox-modal .carousel-inner img {
+//   animation: zoomin 10s linear infinite;
+// }
 
 .lightbox-modal .carousel-item .carousel-caption {
   right: 0;
@@ -124,4 +125,9 @@ body {
   height: 1em;
   vertical-align: -0.035em;
   fill: currentcolor;
+}
+
+.fit-img {
+  // object-fit: contain;
+  max-height: 6rem;
 }

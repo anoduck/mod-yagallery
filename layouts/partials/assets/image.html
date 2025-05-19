@@ -12,14 +12,57 @@
     Visit gethinode.com/license for more details.
 -->
 
+<!--
+    For development purposes:
+    https://res.cloudinary.com/dtpjdhepe/image/upload/v1747507701/photo-1740975833734-2e0bba5d74df_ohhihi.jpg
+    https://res.cloudinary.com/dtpjdhepe/image/upload/t_Thumbnail/v1747507701/photo-1740975833734-2e0bba5d74df_ohhihi.jpg
+-->
+
 {{- $image := .image -}}
 {{- $debug := .debug -}}
 {{- $src := $image.src -}}
 {{- $alt := $image.alt -}}
-{{/*  {{- $thumb := $src.Resize "480x320 Lanczos" -}}  */}}
+{{- $thumb := $image.thumb -}}
+{{- $uP := "" -}}
+{{- $unHinged := "" -}}
+{{- $userId := "" -}}
+{{- $cPath := "/image/upload/t_Thumbnail/" -}}
+{{- $photoId := "" -}}
+{{- $photoName := "" -}}
+{{- $parsedThumb := "" -}}
+{{- $reAssembled := "" -}}
+{{- $mkThumb := "" -}}
+{{- $uBase := "" -}}
 
-<div class="col">
+{{- if ( eq $thumb "hugo" )}}
+    {{- $mkThumb = $src.Resize "480x320 Lanczos" -}}
+{{ else if ( eq $thumb "cloudinary" )}}
+    {{- $uP = urls.Parse $src -}}
+    {{- $unHinged = (slicestr $uP.Path 1) -}}
+    {{- $parsedThumb = ( split $unHinged "/" ) -}}
+    {{- $userId = index $parsedThumb 0 -}}
+    {{- $photoId = index $parsedThumb 3 -}}
+    {{- $photoName = index $parsedThumb 4 -}}
+    {{- $reAssembled = ( print "/" $userId $cPath $photoId "/" $photoName  ) -}}
+    {{- $uBase = ( print $uP.Scheme "://" $uP.Host "/" ) -}}
+    {{- $mkThumb = ( print $uBase $reAssembled ) -}}
+{{ else }}
+    {{- $mkThumb = $thumb -}}
+{{ end }}
+
+<div class="col d-inline-flex justify-content-evenly align-items-center flex-wrap">
     <a class="gallery-item" href="{{ $src | safeHTML }}">
-        <img style="max-width: 480px; max-height: 320px;" src="{{ $src | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
+        <img style="max-width: 480px; max-height: 320px;" src="{{ $mkThumb | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
     </a>
+    {{- if $debug }}
+        <ul>
+            <li style="font-size: xx-small;">{{ $unHinged }}</li>
+            <li style="font-size: xx-small;">{{ $parsedThumb }}</li>
+            <li style="font-size: xx-small;">{{ $userId }}</li>
+            <li style="font-size: xx-small;">{{ $photoId }}</li>
+            <li style="font-size: xx-small;">{{ $photoName }}</li>
+            <li style="font-size: xx-small;">{{ $reAssembled }}</li>
+            <li style="font-size: xx-small;">{{ $mkThumb }}</li>
+        </ul>
+    {{ end -}}
 </div>

@@ -1,7 +1,7 @@
 comment: >-
   Creates an embedded gallery containing photos.
 arguments:
-  imgGalId:
+  galId:
     type: string
     position: 0
     optional: false
