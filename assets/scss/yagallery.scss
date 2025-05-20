@@ -10,18 +10,6 @@ body {
   margin: 1.5rem 0 3.5rem;
 }
 
-// @keyframes zoomin {
-//   0% {
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(1.05);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-
 .gallery-item {
   display: block;
 }
@@ -70,10 +58,6 @@ body {
   width: 75%;
 }
 
-// .lightbox-modal .carousel-inner img {
-//   animation: zoomin 10s linear infinite;
-// }
-
 .lightbox-modal .carousel-item .carousel-caption {
   right: 0;
   bottom: 0;
@@ -98,6 +82,14 @@ body {
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 .lightbox-modal .carousel-control-prev {
@@ -139,16 +131,4 @@ body {
   height: 1em;
   vertical-align: -0.035em;
   fill: currentcolor;
-}
-
-.fit-img {
-  object-fit: contain;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  width: auto;
-  max-width: 1200px;
-  height: auto;
-  // max-height: 1200px;
 }

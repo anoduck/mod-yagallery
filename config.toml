@@ -17,6 +17,9 @@ unsafe = true
   [[module.mounts]]
     source = 'static'
     target = 'static'
+  [[module.mounts]]
+    source = 'dist/js'
+    target = 'assets/js/modules/yagallery'
 
 [params.modules.yagallery]
   integration = "optional"
