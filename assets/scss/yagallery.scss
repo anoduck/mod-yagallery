@@ -128,6 +128,12 @@ body {
 }
 
 .fit-img {
-  // object-fit: contain;
-  max-height: 6rem;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  width: 50%;
+  height: auto;
+  max-height: 800px;
 }
