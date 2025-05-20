@@ -2,7 +2,7 @@ module github.com/anoduck/mod-yagallery/exampleSite
 
 go 1.19
 
-require github.com/anoduck/mod-yagallery v0.1.3
+require github.com/anoduck/mod-yagallery v0.1.5
 
 require (
 	github.com/gethinode/mod-bootstrap v1.3.2 // indirect
