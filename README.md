@@ -42,22 +42,10 @@ This module uses [semantic-release][semantic-release] to automate the release of
 
 You can demo all of my hugo modules on [Hinode TestSite](https://testhinode.netlify.com)
 
-## Design
-
-I like being lazy, don't you? So, why not make a gallery module for lazy people like me? It seemed like a good idea at
-the time. Having spent years working with server service configurations, one can not understate the importance of "lazy
-friendly" implementations. So, this was the intent.
-
-Use Cloundinary's API to generate thumbnails for you.
-
-```html
-https://res.cloudinary.com/dtpjdhepe/image/upload/v1747507701/photo-1740975833734-2e0bba5d74df_ohhihi.jpg
-https://res.cloudinary.com/dtpjdhepe/image/upload/t_Thumbnail/v1747507701/photo-1740975833734-2e0bba5d74df_ohhihi.jpg
-```
-
 ## Installation
 
-Since this module was intended to jive well with Hinode it uses bootstrap to render the styling. 
+Since this module was intended to jive well with Hinode it uses bootstrap to render the styling, and uses Hinode's own
+implementation of bootstrap, via the bootstrap module.
 
 ## Configuration
 
@@ -69,9 +57,6 @@ This module supports the following parameters (see the section `params.modules` 
 | Setting | Default | Description                                       |
 |---------|---------|---------------------------------------------------|
 | debug   | false   | enable generation of exhaustive debugging output. |
-| imgDir  | "/img"  | location where thumbnails and images are stored.  |
-
-- [^1]: This only works with local images, and does not work on remote (i.e. cloud) stored images.
 
 ### Yaml Data File
 
