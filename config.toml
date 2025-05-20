@@ -19,9 +19,9 @@ unsafe = true
     target = 'static'
 
 [params.modules.yagallery]
-integration = "optional"
-debug = false
-imgDir = "/img"
+  integration = "optional"
+  state = "defer"
+  debug = false
 
 [params.modules.yagallery.csp]
   [modules.yagallery.csp]
