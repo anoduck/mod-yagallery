@@ -18,11 +18,10 @@
     https://res.cloudinary.com/dtpjdhepe/image/upload/t_Thumbnail/v1747507701/photo-1740975833734-2e0bba5d74df_ohhihi.jpg
 -->
 
-{{- $image := .image -}}
+{{- $src := .src -}}
+{{- $alt := .alt -}}
+{{- $thumb := .thumb -}}
 {{- $debug := .debug -}}
-{{- $src := $image.src -}}
-{{- $alt := $image.alt -}}
-{{- $thumb := $image.thumb -}}
 {{- $uP := "" -}}
 {{- $unHinged := "" -}}
 {{- $userId := "" -}}
@@ -44,7 +43,7 @@
     {{- $photoId = index $parsedThumb 3 -}}
     {{- $photoName = index $parsedThumb 4 -}}
     {{- $reAssembled = ( print "/" $userId $cPath $photoId "/" $photoName  ) -}}
-    {{- $uBase = ( print $uP.Scheme "://" $uP.Host "/" ) -}}
+    {{- $uBase = ( print $uP.Scheme "://" $uP.Host ) -}}
     {{- $mkThumb = ( print $uBase $reAssembled ) -}}
 {{ else }}
     {{- $mkThumb = $thumb -}}

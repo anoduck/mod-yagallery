@@ -125,17 +125,6 @@ your datafile less the extension as your gallery id.
 {{< yagallery galId="my-gallery" >}}
 ```
 
-## TODO
-
-- [X] Expand data structure yaml - [Note 5-16]: Since there is only one arguement this was rather easy.
-- [X] setup config and hugo files
-- [X] add configuration and usage to this file.
-- [X] Resolve "head/stylesheet.html not found" issue.
-- [X] Setup generating thumbnails for local images.
-- [X] Setup using cloudinary for thumbnail images.
-- [ ] Generate yaml schema
-- [ ] Fix Image view in gallery
-
 <!-- MARKDOWN LINKS -->
 
 [hugo]: https://gohugo.io

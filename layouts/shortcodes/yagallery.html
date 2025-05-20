@@ -43,13 +43,13 @@
 {{- $imgGalSet := ( index $imgGalFile "content" ) -}}
 
 <!-- Inject div element -->
-{{ partial "assets/svg.html" }}
+{{ partial "assets/yg-svg.html" }}
 {{ with $imgGalTitle }}
   <h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
 {{ end }}
 <p class="text-center mb-4">Click an image to reveal the lightbox</p>
-{{ partial "gallery.html" (dict "galId" $galId "imgGalFile" $imgGalFile "debug" $debug ) }}
-{{ partial "assets/controls.html" }}
+{{ partial "yg-gallery.html" (dict "galId" $galId "imgGalFile" $imgGalFile "debug" $debug ) }}
+{{ partial "assets/yg-controls.html" }}
 
 <!-- Provide debug information -->
 {{- if $debug }}
