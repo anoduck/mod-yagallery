@@ -50,7 +50,7 @@
 {{ end }}
 
 <div class="col d-inline-flex justify-content-evenly align-items-center flex-wrap">
-    <a class="gallery-item" href="{{ $src | safeHTML }}">
+    <a class="gallery-item" href="{{ $src | safeHTML }}" data-src="{{ $thumb | safeHTML }}">
         <img style="max-width: 480px; max-height: 320px;" src="{{ $mkThumb | safeHTML }}" class="img-fluid" alt="{{ $alt | safeHTML }}">
     </a>
     {{- if $debug }}

@@ -1,6 +1,6 @@
 {
   "name": "@anoduck/mod-yagallery",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A module to generate lightgallery powered image galleries.",
   "keywords": [
     "hugo",
@@ -21,7 +21,7 @@
     "mod:update": "rimraf _vendor && hugo mod get -u ./... && hugo mod get -u && npm run -s mod:vendor && npm run -s mod:tidy",
     "mod:tidy": "hugo mod tidy",
     "mod:vendor": "rimraf _vendor && hugo mod vendor",
-    "postinstall": "echo 'Do nothing'",
+    "postinstall": "echo 'Nothing to do!'",
     "test": "npm run -s build",
     "upgrade": "npx npm-check-updates -u && npm run -s mod:update",
     "prepare": "node .husky/install.mjs"
