@@ -44,46 +44,58 @@ document.addEventListener("DOMContentLoaded", () => {
     return supported;
   }
 
-  function resizeImage(img) {
+  function resizeImage(link) {
+    var imgSrc = link.getAttribute('href');
     var widthPercent = 0.8; //Percent of screen coverage
     var heightPercent = 0.8; // Percent of Screen coverage
-    var imgObj = new Image(),
-      canvas = document.createElement("canvas"),
-      ctx = canvas.getContext("2d");
-    imgObj.onload = () => {
-      var canvas = document.createElement('canvas');
-      var scrHeight = window.screen.availHeight;
-      var scrWidth = window.screen.availWidth;
-      var maxWidth = Math.trunc(scrWidth * widthPercent); // Define the maximum width of the image as a decimal
-      console.log("Max width: " + maxWidth);
-      var maxHeight = Math.trunc(scrHeight * heightPercent); // Define the maximum height of the image as a decimal
-      console.log("Max Height: " + maxHeight);
-      var width = img.naturalWidth;
-      var height = img.naturalHeight;
+    var imgId = truncName(imgSrc);
+    var img = new Image();
+    img.src = imgSrc;
+    var canvas = document.getElementById(imgId);
+    var ctx = canvas.getContext("2d");
+    var scrHeight = window.screen.availHeight;
+    var scrWidth = window.screen.availWidth;
+    var maxWidth = Math.trunc(scrWidth * widthPercent); // Define the maximum width of the image as a decimal
+    console.log("Max width: " + maxWidth);
+    var maxHeight = Math.trunc(scrHeight * heightPercent); // Define the maximum height of the image as a decimal
+    console.log("Max Height: " + maxHeight);
+    var width = img.naturalWidth;
+    var height = img.naturalHeight;
 
-      // Calculate the new dimensions, maintaining the aspect ratio
-      if (width > height) {
-        if (width > maxWidth) {
-          height *= maxWidth / width;
-          width = maxWidth;
-        }
-      } else {
-        if (height > maxHeight) {
-          width *= maxHeight / height;
-          height = maxHeight;
-        }
+    // Calculate the new dimensions, maintaining the aspect ratio
+    if (width > height) {
+      if (width > maxWidth) {
+        height *= maxWidth / width;
+        width = maxWidth;
       }
+    } else {
+      if (height > maxHeight) {
+        width *= maxHeight / height;
+        height = maxHeight;
+      }
+    }
 
-      console.log('Caculated width = ' + width);
-      console.log("Caculated height = " + height);
+    console.log('Caculated width = ' + width);
+    console.log("Caculated height = " + height);
 
-      // Set the canvas dimensions to the new dimensions
-      canvas.width = width;
-      canvas.height = height;
+    // Set the canvas dimensions to the new dimensions
+    canvas.width = width;
+    canvas.height = height;
 
-      // Draw the resized image on the canvas
-      var ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, width, height);
+    // Draw the resized image on the canvas
+    ctx.drawImage(img, 0, 0, width, height);
+  }
+
+  function truncName(imgString) {
+    var nameLength = -8;
+    var lessExt = imgString.substring(0, imgString.lastIndexOf(".")) || imgString;
+    truncId = lessExt.slice(nameLength);
+    return truncId;
+  }
+
+  function generateCanvases(link) {
+    for (const link of links) {
+      resizeImage(link);
     }
   }
 
@@ -97,11 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
       var canvasCheck = testCanvas();
       if (canvasCheck) {
         console.log('Running canvas generation.')
+        var imgId = truncName(img.src);
         markup += `
           <div class="carousel-item${currentImgSrc === imgSrc ? " active" : ""}">
-            <span id="canvas-span">
-              ${ img ? resizeImage(img) : "" }
-            </span>
+            <canvas id="${imgId}"></canvas>
             ${imgAlt ? createCaption(imgAlt) : ""}
           </div>`;
       } else {
@@ -158,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bsCarousel.to(index);
       } else {
         createCarousel(currentImg);
+        generateCanvases(link);
       }
 
       bsModal.handleUpdate();
