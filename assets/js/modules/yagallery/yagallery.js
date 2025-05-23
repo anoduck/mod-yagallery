@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const bsModal = new bootstrap.Modal(lightboxModal);
   const modalBody = lightboxModal.querySelector(".lightbox-content");
 
+  function debug(msg) {
+    var galTitle = document.getElementById('yagallery');
+    var debugvar = galTitle.dataset.debug;
+    if (debugvar === 'true') {
+      console.log(msg);
+    }
+  }
+
   function createCaption(caption) {
     return `<div class="carousel-caption d-none d-md-block">
         <h4 class="m-0">${caption}</h4>
@@ -40,27 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
   function testCanvas() {
     var elem = document.createElement("canvas");
     var supported = !!(elem.getContext && elem.getContext("2d"));
-    console.log("Is canvas supported: " + supported);
+    debug("Is canvas supported: " + supported);
     return supported;
   }
 
   function resizeImage(link) {
     var imgSrc = link.getAttribute('href');
+    debug('Image Source: ' + imgSrc)
     var widthPercent = 0.8; //Percent of screen coverage
     var heightPercent = 0.8; // Percent of Screen coverage
     var imgId = truncName(imgSrc);
-    var img = new Image();
-    img.src = imgSrc;
+    var canimg = new Image();
+    canimg.src = imgSrc;
     var canvas = document.getElementById(imgId);
     var ctx = canvas.getContext("2d");
     var scrHeight = window.screen.availHeight;
     var scrWidth = window.screen.availWidth;
     var maxWidth = Math.trunc(scrWidth * widthPercent); // Define the maximum width of the image as a decimal
-    console.log("Max width: " + maxWidth);
+    debug("Max width: " + maxWidth);
     var maxHeight = Math.trunc(scrHeight * heightPercent); // Define the maximum height of the image as a decimal
-    console.log("Max Height: " + maxHeight);
-    var width = img.naturalWidth;
-    var height = img.naturalHeight;
+    debug("Max Height: " + maxHeight);
+    var width = canimg.width;
+    debug("Image width: " + width);
+    var height = canimg.height;
+    debug("Image height: " + height);
 
     // Calculate the new dimensions, maintaining the aspect ratio
     if (width > height) {
@@ -75,15 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    console.log('Caculated width = ' + width);
-    console.log("Caculated height = " + height);
+    debug('Calculated width = ' + width);
+    debug("Calculated height = " + height);
 
     // Set the canvas dimensions to the new dimensions
     canvas.width = width;
     canvas.height = height;
 
     // Draw the resized image on the canvas
-    ctx.drawImage(img, 0, 0, width, height);
+    ctx.drawImage(canimg, 0, 0, width, height);
   }
 
   function truncName(imgString) {
@@ -108,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imgAlt = img.getAttribute("alt");
       var canvasCheck = testCanvas();
       if (canvasCheck) {
-        console.log('Running canvas generation.')
+        debug('Running canvas generation.')
         var imgId = truncName(img.src);
         markup += `
           <div class="carousel-item${currentImgSrc === imgSrc ? " active" : ""}">
@@ -116,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${imgAlt ? createCaption(imgAlt) : ""}
           </div>`;
       } else {
-        console.log('No Canvas used.')
+        debug('No Canvas used.')
         markup += `
           <div class="carousel-item${currentImgSrc === imgSrc ? " active" : ""}">
             <img class="d-block img-fluid w-100" src=${img} alt="${imgAlt}">

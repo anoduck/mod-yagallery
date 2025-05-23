@@ -1,0 +1,52 @@
+{
+        "$schema": "http://json-schema.org/draft-07/schema",
+        "$id": "https://github.com/anoduck/mod-yagallery/yagallery.schema.json",
+        "title": "YaGallery gallery data Schema",
+        "description": "Schema for Hinode's YaGallery module for yaml gallery data files.",
+        "$comment": "Target file type should be yaml.",
+        "lastModified": "2025-05-23T13:41:17-04:00",
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Gallery Title",
+                "default": "yagallery gallery",
+                "examples": [
+                    "A Gallery Title"
+                ]
+            },
+            "content": {
+                "type": "array",
+                "description": "Array comprised of src, alt, thumb objects.",
+                "properties": {
+                    "src": {
+                        "type": "string",
+                        "description": "URI of image for use in gallery. can be path or url"
+                    },
+                    "alt": {
+                        "type": "string",
+                        "description": "Alternative text used as caption for image."
+                    },
+                    "thumb": {
+                        "type": "string",
+                        "description": "Either a path, the string 'cloudinary', or the string 'hugo'",
+                        "properties": {
+                            "cloudinary": {
+                                "type":"string",
+                                "description": "Use cloudinary to generate thumbnails."
+                            },
+                            "hugo": {
+                                "type":"string",
+                                "description": "Use hugo to generate thumbnails."
+                            },
+                            "path": {
+                                "type": "string",
+                                "description": "A valid path to a thumbnail image."
+                            }
+                        },
+                        "oneOf": [ "cloudinary", "hugo", "path" ]
+                    }
+                }
+            }
+        }
+}
