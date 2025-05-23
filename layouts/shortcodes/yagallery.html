@@ -44,9 +44,7 @@
 
 <!-- Inject div element -->
 {{ partial "assets/yg-svg.html" }}
-{{ with $imgGalTitle }}
-  <h1 class="text-center mb-0">{{ . | safeHTML }}</h1>
-{{ end }}
+<h1 class="text-center mb-0" data-debug="{{ $debug | safeHTML }}" id="yagallery">{{ $imgGalTitle | safeHTML }}</h1>
 <p class="text-center mb-4">Click an image to reveal the lightbox</p>
 {{ partial "yg-gallery.html" (dict "galId" $galId "imgGalFile" $imgGalFile "debug" $debug ) }}
 {{ partial "assets/yg-controls.html" }}

@@ -1,8 +1,8 @@
-# Hinode Module - Template
+# Hinode Module - yagallery
 
 <!-- Tagline -->
 <p align="center">
-    <b>A template to define a Hugo module compatible with Hinode</b>
+    <b>Yet, another damn gallery module for Hinode.</b>
     <br />
 </p>
 
@@ -14,29 +14,37 @@
     <a href="https://gethinode.com" alt="Hinode theme">
         <img src="https://img.shields.io/badge/theme-hinode-blue">
     </a>
-    <a href="https://github.com/gethinode/mod-template/commits/main" alt="Last commit">
-        <img src="https://img.shields.io/github/last-commit/gethinode/mod-template.svg">
+    <a href="https://github.com/anoduck/mod-yagallery/commits/main" alt="Last commit">
+        <img src="https://img.shields.io/github/last-commit/anoduck/mod-yagallery.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-template/issues" alt="Issues">
-        <img src="https://img.shields.io/github/issues/gethinode/mod-template.svg">
+    <a href="https://github.com/anoduck/mod-yagallery/issues" alt="Issues">
+        <img src="https://img.shields.io/github/issues/anoduck/mod-yagallery.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-template/pulls" alt="Pulls">
-        <img src="https://img.shields.io/github/issues-pr-raw/gethinode/mod-template.svg">
+    <a href="https://github.com/anoduck/mod-yagallery/pulls" alt="Pulls">
+        <img src="https://img.shields.io/github/issues-pr-raw/anoduck/mod-yagallery.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-template/blob/main/LICENSE" alt="License">
-        <img src="https://img.shields.io/github/license/gethinode/mod-template">
+    <a href="https://github.com/anoduck/mod-yagallery/blob/main/LICENSE" alt="License">
+        <img src="https://img.shields.io/github/license/anoduck/mod-yagallery">
     </a>
 </p>
 
-## About
+## About Hinode
 
 ![Logo](https://raw.githubusercontent.com/gethinode/hinode/main/static/img/logo.png)
 
 Hinode is a clean blog theme for [Hugo][hugo], an open-source static site generator. Hinode is available as a [template][repository_template], and a [main theme][repository]. <!-- This repository maintains a Hugo module to add [module][module] to a Hinode site. --> Visit the Hinode documentation site for [installation instructions][hinode_docs].
 
-## Contributing
+### _Contributing to Hinode_
 
-This module uses [semantic-release][semantic-release] to automate the release of new versions. The package uses `husky` and `commitlint` to ensure commit messages adhere to the [Conventional Commits][conventionalcommits] specification. You can run `npx git-cz` from the terminal to help prepare the commit message.
+This module uses [semantic-release][semantic-release] to automate the release of new versions. The package uses `husky`
+and `commitlint` to ensure commit messages adhere to the [Conventional Commits][conventionalcommits] specification. You
+can run `npx git-cz` from the terminal to help prepare the commit message.
+
+---
+
+## About Mod-Yagallery
+
+A module for Hinode that uses bootstrap's own modal component to create a photo gallery for sharing images.
 
 ## Demo
 
@@ -44,7 +52,7 @@ You can demo all of my hugo modules on [Hinode TestSite](https://testhinode.netl
 
 ## Installation
 
-Since this module was intended to jive well with Hinode it uses bootstrap to render the styling, and uses Hinode's own
+Since this module was intended for Hinode it uses Hinode's own [bootstrap module](https://github.com/gethinode/mod-bootstrap) to render the styling, and uses Hinode's own
 implementation of bootstrap, via the bootstrap module.
 
 ## Configuration
